@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="dogstyles.css?version=51">
+<title>Dog Show</title>
+</head>
+<body>
+	<header>
+		<div class="navigationBar">
+			<img src="logo.png" alt="logo" id="logo" /> <span id="logoHead">Dapper
+				Dogs</span>
+			<nav>
+				<ul>
+					<li><a th:href="@{/}">Home</a></li>
+					<li><a th:href="@{/dogBreeds}">Dog Breeds</a></li>
+					<li><a th:href="@{/dogAdd}">Add a Dog</a></li>
+					<li><a th:href="@{/dogView}">Dog Competition</a></li>
+					<li><a th:href="@{/dogShowList}">Show List</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<div class="containerOne">
+		<p>
+			To register for our dog show, use the navigation bar to get started!
+			<br>
+			<br>
+			<br>See the breeds that have entered our competition and enter
+			your own if it is not listed. Then register with your information. <br>
+			<br>
+			<br>You may also see the competition listing as well as the show
+			list!
+		</p>
+		<img src="goldenretriever1.jpg" alt="imageOne" id="imageOne" />
+	</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="dogstyles.css?version=51">
+<title>Dog Breeds</title>
+</head>
+<body>
+	<header>
+		<div class="navigationBar">
+			<img src="logo.png" alt="logo" id="logo" /> <span id="logoHead">Dapper
+				Dogs</span>
+			<nav>
+				<ul>
+					<li><a th:href="@{/}">Home</a></li>
+					<li><a th:href="@{/dogBreeds}">Dog Breeds</a></li>
+					<li><a th:href="@{/dogAdd}">Add a Dog</a></li>
+					<li><a th:href="@{/dogView}">Dog Competition</a></li>
+					<li><a th:href="@{/dogShowList}">Show List</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<div class="containerRow">
+		<h1>List of Dog Breeds</h1>
+		<div class="containerColumn">
+			<img src="barbet.jpg" /><br>Barbet <img
+				src="goldenretriever2.jpg" /><br>Golden Retriever <img
+				src="brittany.jpg" /><br>Brittany
+		</div>
+		<div class="containerColumn">
+			<img src="englishsetter.jpg" /><br>English Setter <img
+				src="gordonsetter.jpeg" /><br>Gordon Setter <img
+				src="irishsetter.jpeg" /><br>Irish Setter
+		</div>
+		<div class="containerColumn">
+			<img src="pointer.jpeg" /><br>Pointer <img
+				src="sussexspaniel.jpg" /><br>Sussex Spaniel <img
+				src="weimaraner.jpeg" /><br>Weimaraner <img src="vizsla.jpeg" /><br>Vizsla
+		</div>
+	</div>
+	<br>
+	<div class="containerThree">
+		<form action="#" th:action="@{/dogBreedValidate}" th:object="${dog}"
+			method="get" class="form_breed">
+			<br>
+			<h1>Enter a Dog Breed</h1>
+			<br>If your dog does not appear here, <br>then feel free to
+			add it so you can register! <br> <br> <br> Dog Breed:
+			<br> <input type="text" th:field="*{breed}" /> <br> <br>
+			<input type="submit" />
+		</form>
+	</div>
+</body>
+</html>

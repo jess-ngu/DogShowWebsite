@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Dog Show</title>
+<style>
+@keyframes fadeIn {
+	0% {
+	opacity: 0;
+	}
+	100% {
+	opacity: 1;
+	}
+}
+
+* {
+	font-family: Tahoma, sans-serif;
+	scroll-behavior: smooth;
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	z-index: -1;
+}
+
+@media only screen and (max-width: 1000px) {
+	#logo, #logoHead {
+		display: none;
+	}
+}
+
+header a {
+	color: black;
+	font-size: 20px;
+	text-align: center;
+	text-transform: uppercase;
+	opacity: 1;
+	transition: 0.3s;
+}
+
+a:hover {
+	color: white;
+	opacity: 0.8;
+}
+
+body {
+	background-color: #a9927d;
+	animation: fadeIn ease 1s;
+	animation-iteration-count: 1s;
+	animation-fill-mode: forwards;
+}
+
+.form_add {
+	margin: auto;
+	width: 400px;
+	height: 600px;
+	background-color: #ede0d4;
+	border-radius: 25px;
+}
+
+nav {
+	float: right;
+}
+
+nav li {
+	display: inline-block;
+	padding-top: 43px;
+	margin-right: 10px;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	margin-right: 100px;
+	list-style: none;
+}
+
+.containerTwo {
+	margin: auto;
+	padding: 10px 50px 30px 50px;
+	width: 66%;
+	text-align: center;
+}
+
+.containerTwo h1 {
+	padding-top: 150px;
+	padding-bottom: 25px;
+	font-size: 44px;
+	display: block;
+	margin: auto;
+	text-align: center;
+}
+
+.navigationBar {
+	background-color: #e6ccb2;
+	border-bottom: 1px solid #ddb892;
+	float: right;
+	width: 100%;
+	height: 100px;
+}
+
+#logoHead {
+	font-size: 60px;
+	text-transform: uppercase;
+	padding-left: 220px;
+	padding-top: 17px;
+	position: absolute;
+}
+</style>
+</head>
+<body>
+	<header>
+		<div class="navigationBar">
+			<span id="logoHead">Dapper Dogs</span>
+			<nav>
+				<ul>
+					<li><a th:href="@{/}">Home</a></li>
+					<li><a th:href="@{/dogBreeds}">Dog Breeds</a></li>
+					<li><a th:href="@{/dogAdd}">Add a Dog</a></li>
+					<li><a th:href="@{/dogView}">Dog Competition</a></li>
+					<li><a th:href="@{/dogShowList}">Show List</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<div class="containerTwo">
+		<form action="#" th:action="@{/dogModify}" th:object="${dog}"
+			method="get" class="form_add">
+			<h1>Edit a Dog Entry</h1>
+			<br> Entry Number: <br> <input type="text" th:field="*{id}"
+				readonly /> <br> Name: <br> <input type="text"
+				th:field="*{name}" /> <br> Owner Name: <br> <input
+				type="text" th:field="*{ownerName}" /> <br> Dog Breed: <br>
+			<select th:field="*{breed}">
+				<option value="">Select Breed</option>
+				<option th:each="breed : ${breeds}" th:value="${breed}"
+					th:text="${breed}"></option>
+			</select> <br> Dog Gender: <br> <input type="radio"
+				th:field="*{gender}" name="gender" value="Male" /> Male <input
+				type="radio" th:field="*{gender}" name="gender" value="Female" />
+			Female <br> Class or Specialty: <br> <input type="radio"
+				th:field="*{type}" name="type" value="Class" /> Class <input
+				type="radio" th:field="*{type}" name="type" value="Specialty" />
+			Specialty <br> <br> <input type="submit" />
+		</form>
+	</div>
+</body>
+</html>

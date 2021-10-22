@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="dogstyles.css?version=51">
+<title>Enter a Dog</title>
+</head>
+<body>
+	<header>
+		<div class="navigationBar">
+			<img src="logo.png" alt="logo" id="logo" /> <span id="logoHead">Dapper
+				Dogs</span>
+			<nav>
+				<ul>
+					<li><a th:href="@{/}">Home</a></li>
+					<li><a th:href="@{/dogBreeds}">Dog Breeds</a></li>
+					<li><a th:href="@{/dogAdd}">Add a Dog</a></li>
+					<li><a th:href="@{/dogView}">Dog Competition</a></li>
+					<li><a th:href="@{/dogShowList}">Show List</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<div class="containerTwo">
+		<form action="#" th:action="@{/dogValidate}" th:object="${dog}"
+			method="get" class="form_add">
+			<h1>Add a Dog</h1>
+			<br> Name: <br> <input type="text" th:field="*{name}" /> <br>
+			<br> Owner Name: <br> <input type="text"
+				th:field="*{ownerName}" /> <br> <br> Select Dog Breed: <br>
+			<select th:field="*{breed}">
+				<option th:each="breed : ${breeds}" th:value="${breed}"
+					th:text="${breed}"></option>
+			</select> <br> <br> Dog Gender: <br> <input type="radio"
+				th:field="*{gender}" name="gender" value="Male" /> Male <input
+				type="radio" th:field="*{gender}" name="gender" value="Female" />
+			Female <br> <br> Class or Specialty: <br> <input
+				type="radio" th:field="*{type}" name="type" value="Class" /> Class
+			<input type="radio" th:field="*{type}" name="type" value="Specialty" />
+			Specialty <br> <br> <input type="submit" />
+		</form>
+	</div>
+</body>
+</html>

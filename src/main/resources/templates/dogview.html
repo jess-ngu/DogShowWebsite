@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="dogstyles.css?version=51">
+<title>Dog Competition List</title>
+</head>
+<body>
+	<header>
+		<div class="navigationBar">
+			<img src="logo.png" alt="logo" id="logo" /> <span id="logoHead">Dapper
+				Dogs</span>
+			<nav>
+				<ul>
+					<li><a th:href="@{/}">Home</a></li>
+					<li><a th:href="@{/dogBreeds}">Dog Breeds</a></li>
+					<li><a th:href="@{/dogAdd}">Add a Dog</a></li>
+					<li><a th:href="@{/dogView}">Dog Competition</a></li>
+					<li><a th:href="@{/dogShowList}">Show List</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<div class="containerTwo">
+		<h1>Dogs</h1>
+		<table>
+			<tr>
+				<th>Entry Number</th>
+				<th>Name</th>
+				<th>Owner Name</th>
+				<th>Breed</th>
+				<th>Gender</th>
+				<th>Type</th>
+				<th></th>
+				<th></th>
+			</tr>
+			<tr th:each="dog : ${dogs}">
+				<td th:text="${dog.id}"></td>
+				<td th:text="${dog.name}"></td>
+				<td th:text="${dog.ownerName}"></td>
+				<td th:text="${dog.breed}"></td>
+				<td th:text="${dog.gender}"></td>
+				<td th:text="${dog.type}"></td>
+				<td><a href="" th:href="@{/dogEdit/{id}(id=${dog.id})}">EDIT</a>
+				<td><a href="" th:href="@{/dogDelete/{id}(id=${dog.id})}">DELETE</a>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

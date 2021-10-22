@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="dogstyles.css?version=51">
+<title>Dog Show List</title>
+</head>
+<body>
+	<header>
+		<div class="navigationBar">
+			<img src="logo.png" alt="logo" id="logo" /> <span id="logoHead">Dapper
+				Dogs</span>
+			<nav>
+				<ul>
+					<li><a th:href="@{/}">Home</a></li>
+					<li><a th:href="@{/dogBreeds}">Dog Breeds</a></li>
+					<li><a th:href="@{/dogAdd}">Add a Dog</a></li>
+					<li><a th:href="@{/dogView}">Dog Competition</a></li>
+					<li><a th:href="@{/dogShowList}">Show List</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<div class="containerTwo">
+		<h1>Show List</h1>
+		<table>
+			<tr>
+				<th>Number of Dogs</th>
+				<th>Breed</th>
+				<th>Class Male</th>
+				<th>Class Female</th>
+				<th>Specialty Male</th>
+				<th>Specialty Female</th>
+			</tr>
+			<tr th:each="breeds : ${showList}">
+				<td th:text="${breeds.amount}"></td>
+				<td th:text="${breeds.breed}"></td>
+				<td th:text="${breeds.maleClass}"></td>
+				<td th:text="${breeds.femaleClass}"></td>
+				<td th:text="${breeds.maleSpecialty}"></td>
+				<td th:text="${breeds.femaleSpecialty}"></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
